@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bmi calulator</title>
+</head>
+<link rel="stylesheet" href="./index.css">
+<body>
+
+ 
+        <div class="calulator">
+            <h2 >Calculate your Body Mass Index </h2><br>
+            <label for="name" class="text"> Your Weight: </label>
+            <input type="text" id="weight" class="input1" placeholder="WEIGHT IN KG "><br><br>
+            <label for="name" class="text"> Height In Feet: </label>
+             <input type="text" id="feet" class="input2" placeholder="IN FEET"> <span class="text2">+</span>
+            
+              <input type="text" id="inches" class="input2 input3"  placeholder="REMAIN ICNCHES"><br><br>
+        
+            <button type="button" class="click" onclick="calulate()"> calulate</button><br><br>
+            <p id="answer" class="answer">BMI: </p><br>
+            <p  id="condition"  class="condition">your condition:</p><br>
+            <img src="./images/structure.webp" alt="">
+        </div>
+   
+
+    <script>
+        function calulate(){
+            const condition=document.getElementById("condition")
+            const result=document.getElementById("answer");
+        const weight= parseInt((document.getElementById("weight")).value);
+        const feet= parseInt((document.getElementById("feet")).value);
+        const inches= parseInt((document.getElementById("inches")).value);
+        const value2= (feet+ (inches/12))*0.3048;
+        const answer = ((weight/(value2*value2) ).toFixed(2));
+        result.innerText= `BMI :${answer} kgm²`
+        
+        if (answer<15.6)
+        condition.innerText= "you are under weight"
+            
+        // else if(answer>=18 && answer<22)
+        // document.write("your underwieight");
+            
+        else if(answer>=22 && answer<25)
+        condition.innerText= " you are healthy . 🎉"
+            
+        else{
+            condition.innerText= "you are overweight "
+        }
+    
+    }
+
+
+    </script>
+
+</body>
+</html>
